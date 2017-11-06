@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>ServletLifeCycle</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  <servlet-name>Servlet1</servlet-name>
+  <servlet-class>com.wu.jee.Servlet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Servlet1</servlet-name>
+  <url-pattern>/s1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>Servlet2</servlet-name>
+  <servlet-class>com.wu.jee.Servlet2</servlet-class>
+  <load-on-startup>0</load-on-startup>  <!-- 这个标签默认值-1，被使用时才会加载；0，部署到服务器时就会加载；大于0，按照大小依次加载 -->
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Servlet2</servlet-name>
+  <url-pattern>/s2</url-pattern>
+  </servlet-mapping>
+   
+   <listener>
+   	<listener-class>com.wu.jee.listenner.WebContextListenner</listener-class>
+   </listener>
+</web-app>

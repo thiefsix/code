@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>StudentManageSystem</display-name>
+  
+  <filter>
+  	<filter-name>Encoding</filter-name>
+  	<filter-class>com.wu.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>LoginValidate</filter-name>
+  	<filter-class>com.wu.filter.LoginValidate</filter-class>
+  </filter>
+  <!-- <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/manage</url-pattern>
+  </filter-mapping> -->
+  
+  
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/addcourse.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/admin.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/queryCourseByName.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updatecourse.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/teacher.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/student.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/operateStudent.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/operateTeacher.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/grade.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/showSC.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/showSCStu.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/showTC.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/student.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/teacher.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updatePwd.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updatePwdStu.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updatePwdTea.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updateStudent.jsp</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updateStudentStu.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updateTeacher.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/updateTeacherTea.jsp</url-pattern>
+  </filter-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.wu.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddCourse</servlet-name>
+  	<servlet-class>com.wu.controller.AddCourse</servlet-class>
+  	<multipart-config>
+      <max-file-size>1024000</max-file-size>
+      <max-request-size>1025024</max-request-size>
+      <file-size-threshold>4096</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddCourse</servlet-name>
+  	<url-pattern>/addcourse</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>UpdateCourse</servlet-name>
+  	<servlet-class>com.wu.controller.UpdateCourse</servlet-class>
+  	<multipart-config>
+      <max-file-size>51200</max-file-size>
+      <max-request-size>52224</max-request-size>
+      <file-size-threshold>4096</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateCourse</servlet-name>
+  	<url-pattern>/updatecourse</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>QueryAllCourse</servlet-name>
+  	<servlet-class>com.wu.controller.QueryAllCourse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QueryAllCourse</servlet-name>
+  	<url-pattern>/queryAllCourse</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteCourse</servlet-name>
+  	<servlet-class>com.wu.controller.DeleteCourse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteCourse</servlet-name>
+  	<url-pattern>/deletecourse</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>QueryCourseByName</servlet-name>
+  	<servlet-class>com.wu.controller.QueryCourseByName</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>QueryCourseByName</servlet-name>
+  	<url-pattern>/queryCourseByName</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddStudent</servlet-name>
+  	<servlet-class>com.wu.controller.AddStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddStudent</servlet-name>
+  	<url-pattern>/addstudent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Select</servlet-name>
+  	<servlet-class>com.wu.controller.Select</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Select</servlet-name>
+  	<url-pattern>/select</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ShowPageCourse</servlet-name>
+  	<servlet-class>com.wu.controller.ShowPageCourse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ShowPageCourse</servlet-name>
+  	<url-pattern>/showPageCourse</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<servlet-class>com.wu.controller.Student</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StudentServlet</servlet-name>
+  	<url-pattern>/student</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<servlet-class>com.wu.controller.TeacherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>TeacherServlet</servlet-name>
+  	<url-pattern>/teacher</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>manage</servlet-name>
+  	<servlet-class>com.wu.controller.manage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>manage</servlet-name>
+  	<url-pattern>/manage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AddTeacher</servlet-name>
+  	<servlet-class>com.wu.controller.AddTeacher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddTeacher</servlet-name>
+  	<url-pattern>/addteacher</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteTeacher</servlet-name>
+  	<servlet-class>com.wu.controller.DeleteTeacher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteTeacher</servlet-name>
+  	<url-pattern>/deleteteacher</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateTeacher</servlet-name>
+  	<servlet-class>com.wu.controller.UpdateTeacher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateTeacher</servlet-name>
+  	<url-pattern>/updateteacher</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateStudent</servlet-name>
+  	<servlet-class>com.wu.controller.UpdateStudent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateStudent</servlet-name>
+  	<url-pattern>/updatestudent</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>pageController</servlet-name>
+  	<servlet-class>com.wu.controller.pageController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>pageController</servlet-name>
+  	<url-pattern>/pageController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InfoController</servlet-name>
+  	<servlet-class>com.wu.controller.InfoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InfoController</servlet-name>
+  	<url-pattern>/infoController</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

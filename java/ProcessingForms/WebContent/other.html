@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="other" method="post">
+		<input type="hidden" name="hidden" value="test"><br/> <!-- "隐藏"，客服端看不见，服务端可对它进行处理 -->
+		性别<input type="radio" name="gender" value="男">男 <!-- "单选" -->
+		<input type="radio" name="gender" value="女">女<br/>
+		课程<input type="checkbox" name="course" value="JSP">JSP <!-- "多选" -->
+		<input type="checkbox" name="course" value="ASP">ASP
+		<input type="checkbox" name="course" value="PHP">PHP<br/>
+		城市<select name="city">
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+			<option value="广州">广州</option>
+		</select><br/>
+		<input type="reset" value="取消">
+		<input type="submit" value="提交">
+	</form>
+
+</body>
+</html>

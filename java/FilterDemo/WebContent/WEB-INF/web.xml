@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>FilterDemo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+  	<filter-name>Encoding</filter-name>
+  	<filter-class>com.wu.jee.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>LoginValidate</filter-name>
+  	<filter-class>com.wu.jee.filter.LoginValidateFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>LoginValidate</filter-name>
+  	<url-pattern>/control/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>com.wu.jee.control.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Test</servlet-name>
+  	<servlet-class>com.wu.jee.control.TestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test</servlet-name>
+  	<url-pattern>/control/test</url-pattern>
+  </servlet-mapping>
+</web-app>
