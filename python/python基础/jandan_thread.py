@@ -6,6 +6,7 @@ import threading
 import time
 from Queue import Queue
 import re
+import os
 import urllib
 from bs4 import BeautifulSoup as BS
 
@@ -19,7 +20,7 @@ class jiandan(threading.Thread):
 			url = self._queue.get_nowait()
 			self.spider(url)
 
-	mutex = threading.Lock()
+	# mutex = threading.Lock()
 	def spider(self,url):
 		# url = 'http://jandan.net/ooxx'
 		headers = {'User-Agent':'ichunqiu_spider_test ver 1.0'}
@@ -41,8 +42,10 @@ class jiandan(threading.Thread):
 			else:
 				img = img['src']
 			name = img.split('/')[-1]
-			# print img
-			urllib.urlretrieve(img,filename='jandan/'+name)
+			local = os.path.join("d://11/",name)
+			# print local
+			imgurl = 'http:'+ img
+			urllib.urlretrieve(imgurl,local)
 
 def main():
 	threads = []
